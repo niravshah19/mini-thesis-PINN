@@ -1,11 +1,11 @@
 import pandas as pd
 import numpy as np
 import sys
-sys.path.insert(0,'D:\Mini Thesis Codes')      ##Plotting & Kinametics file 
+sys.path.insert(0,'D:\Mini Thesis Codes')      ##Plotting & Kinematics file 
 import Plotting as plot
 import os
 import tensorflow as tf
-import Kinametics
+import Kinematics
 
 ###Get array of corodinates from array containig node id
 def coordinates_from_nodeID(nodeID):
@@ -340,6 +340,6 @@ early_stopping = tf.keras.callbacks.EarlyStopping(
                     mode='min')
 
 history = model.fit(X,u,shuffle=False,callbacks=early_stopping,epochs=10000,verbose=1)
-cm = Kinametics.Kinametics(model)
+cm = Kinematics.Kinematics(model)
 Training_loss = np.array(history.history['loss'],dtype=np.float32)
 plotter()
