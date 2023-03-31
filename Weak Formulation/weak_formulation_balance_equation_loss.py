@@ -6,7 +6,7 @@ import Plotting as plot
 import os
 import random
 import tensorflow as tf
-import Kinametics
+import Kinematics
 
 ##Return mesh and bc
 def read_geometry():    
@@ -360,6 +360,9 @@ def plotter():
     X_b = boundary()
     u_b = cm.Deformation(X_b)
     x_b = X_b + u_b
+
+    u = cm.Deformation(X)
+    x = X + u
     
     ##Error in balance equation
     balance_error = tf.math.reduce_euclidean_norm(divP(X),axis=1)
@@ -402,6 +405,6 @@ model.summary()
 model.load_weights('D:\Task 5\Task5_b\Images\Step 20\model.h5')
 print("Weights have been loaded.")
 
-cm = Kinametics.Kinametics(model)
+cm = Kinematics.Kinematics(model)
 
 plotter()

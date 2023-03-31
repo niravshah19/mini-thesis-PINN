@@ -28,7 +28,7 @@ import os
 import random
 import tensorflow as tf
 import time
-import Kinametics
+import Kinematics
 
 global cm
 ##Return mesh and bc
@@ -614,7 +614,7 @@ lr = tf.keras.optimizers.schedules.ExponentialDecay(initial_learning_rate=0.001,
 
 optimizer = tf.keras.optimizers.Adam(learning_rate=lr)
 
-cm = Kinametics.Kinametics(model)
+cm = Kinematics.Kinematics(model)
 
 #Strain_Energy()
 #print(External_Work())
